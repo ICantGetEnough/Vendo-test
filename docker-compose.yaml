@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql_db_test
+    environment:
+      MYSQL_DATABASE: vendo_test
+      MYSQL_USER: vendo
+      MYSQL_PASSWORD: vendo_test
+      MYSQL_ROOT_PASSWORD: root_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
