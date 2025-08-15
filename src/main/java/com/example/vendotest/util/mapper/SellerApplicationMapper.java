@@ -8,6 +8,8 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SellerApplicationMapper {
+    SellerApplicationDto.Response toDto(SellerApplication sellerApplication);
+
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "active", constant = "true")
     @Mapping(target = "createdDate", ignore = true)
@@ -15,7 +17,5 @@ public interface SellerApplicationMapper {
     @Mapping(target = "tinVerified", ignore = true)
     @Mapping(target = "user", ignore = true)
     @Mapping(target = "applicationStatus", ignore = true)
-    SellerApplicationDto.Response toDto(SellerApplication sellerApplication);
-
     SellerApplication toEntity(SellerApplicationDto.Request request);
 }

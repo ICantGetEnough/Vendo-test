@@ -57,6 +57,7 @@ public class SellerApplication extends BaseEntity {
 
     @NotNull
     @Column(nullable = false)
+    @Builder.Default
     boolean tinVerified = false;
 
     @NotNull
@@ -79,11 +80,12 @@ public class SellerApplication extends BaseEntity {
     @Column(nullable = false)
     String referenceCode;
 
-    @OneToOne(mappedBy = "applicationForm")
+    @OneToOne(mappedBy = "sellerApplication")
     User user;
 
     @NotNull
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     @Column(nullable = false)
     ApplicationStatus applicationStatus = ApplicationStatus.PENDING_TIN_VERIFICATION;
 
