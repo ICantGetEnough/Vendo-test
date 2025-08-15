@@ -7,3 +7,15 @@ spring:
 server:
   port: 8080
 
+language-mapping:
+  ARABIC:
+    - UAE
+    - SAUDI_ARABIA
+    - QATAR
+  ENGLISH:
+    - USA
+    - UK
+    - FRANCE
+    - AZERBAIJAN
+
+

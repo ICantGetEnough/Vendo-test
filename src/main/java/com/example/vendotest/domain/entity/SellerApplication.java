@@ -31,57 +31,60 @@ public class SellerApplication extends BaseEntity {
 
     @NotNull
     @Column(nullable = false)
-    private String companyName;
+    String companyName;
 
     @Email
     @Column(nullable = false)
-    private String emailAddress;
+    String emailAddress;
 
     @NotNull
     @Column(nullable = false)
-    private String mobilePhone;
-
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private CompanyType companyType;
+    String mobilePhone;
 
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ProductCategory productCategory;
-
-    @NotNull
-    @Column(nullable = false)
-    private String tin;
-
-    @NotNull
-    @Column(nullable = false)
-    private boolean tinVerified = false;
-
-    @NotNull
-    @Column(nullable = false)
-    private String province;
-
-    @NotNull
-    @Column(nullable = false)
-    private String district;
+    CompanyType companyType;
 
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Country country;
+    ProductCategory productCategory;
 
     @NotNull
     @Column(nullable = false)
-    private String referenceCode;
+    String tin;
+
+    @NotNull
+    @Column(nullable = false)
+    boolean tinVerified = false;
+
+    @NotNull
+    @Column(nullable = false)
+    String province;
+
+    @NotNull
+    @Column(nullable = false)
+    String district;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    Country country;
+
+    @Enumerated(EnumType.STRING)
+    Country detectedCountry; // авто-детект по IP или геолокации
+
+    @NotNull
+    @Column(nullable = false)
+    String referenceCode;
 
     @OneToOne(mappedBy = "applicationForm")
-    private User user;
+    User user;
 
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private ApplicationStatus applicationStatus = ApplicationStatus.PENDING_TIN_VERIFICATION;
+    ApplicationStatus applicationStatus = ApplicationStatus.PENDING_TIN_VERIFICATION;
 
 }

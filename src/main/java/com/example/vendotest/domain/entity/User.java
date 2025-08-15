@@ -2,6 +2,7 @@ package com.example.vendotest.domain.entity;
 
 
 import com.example.vendotest.domain.entity.base.BaseEntity;
+import com.example.vendotest.domain.enums.Language;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -31,6 +32,10 @@ public class User extends BaseEntity {
     @NotNull
     @Column(nullable = false)
     String passwordHash;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Language preferredLanguage;
 
     @OneToOne
     @JoinColumn(name = "seller_application_id")
